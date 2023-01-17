@@ -2,12 +2,12 @@ import boto3
 
 s3_client = boto3.client('s3')
 
-objects = s3_client.list_objects_v2(Bucket='ops-test-ec')
+objects = s3_client.list_objects_v2(Bucket='<Bucket-name>')
 
 for obj in objects['Contents']:
     print(obj['Key'])
     response = s3_client.put_object_tagging(
-    Bucket='ops-test-ec',
+    Bucket='<Bucket-name>',
     Key=obj['Key'],
    # Key='/*',
    # VersionId='FQPf0LC1HaqvGYz0DRRjtowTKXAg8UZf',
@@ -21,7 +21,7 @@ for obj in objects['Contents']:
             },
         ]
     },
-    ExpectedBucketOwner='366751107728',
+    ExpectedBucketOwner='****51107**',
     RequestPayer='requester'
     )
 
