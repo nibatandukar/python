@@ -1,9 +1,14 @@
-#ops-test-ec
 import boto3
-client = boto3.client('s3')
-response = client.put_object_tagging(
+
+s3_client = boto3.client('s3')
+
+objects = s3_client.list_objects_v2(Bucket='ops-test-ec')
+
+for obj in objects['Contents']:
+    print(obj['Key'])
+    response = s3_client.put_object_tagging(
     Bucket='ops-test-ec',
-    Key='Screenshot from 2023-01-06 13-48-00.png',
+    Key=obj['Key'],
    # Key='/*',
    # VersionId='FQPf0LC1HaqvGYz0DRRjtowTKXAg8UZf',
    # ContentMD5='string',
@@ -12,11 +17,12 @@ response = client.put_object_tagging(
         'TagSet': [
             {
                 'Key': 'env1',
-                'Value': 'test11'
+                'Value': 'fullandinewtest11'
             },
         ]
     },
     ExpectedBucketOwner='366751107728',
     RequestPayer='requester'
-)
+    )
+
 
