@@ -1,2 +1,2 @@
-#S3 Put Object Tagging
+S3 Put Object Tagging
 
