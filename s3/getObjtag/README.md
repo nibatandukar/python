@@ -1,6 +1,6 @@
-# S3 Put Object Tagging
+# S3 Get Object Tagging
 
-This  code will hleps to add the s3 Put tag on the oject, the max tag that we can add is upto 10.
+This  code will hleps to add the s3 Get tag on the oject, the max tag that we can add is upto 10.
 
 
 ```
